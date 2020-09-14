@@ -6,14 +6,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		// list¼¯ºÏÓÃÀ´±£´æËùÓĞµÄÃ¿Ò»ĞĞ¼ÇÂ¼ÖĞµÄÑ§ÉúĞÕÃû¡¢acÊıÄ¿¡¢time
+		// listé›†åˆç”¨æ¥ä¿å­˜æ‰€æœ‰çš„æ¯ä¸€è¡Œè®°å½•ä¸­çš„å­¦ç”Ÿå§“åã€acæ•°ç›®ã€time
 		ArrayList<Student> list = new ArrayList<Student>();
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		while (sc.hasNext()) {
 			String name = sc.next();
 			int ac = 0, time = 0;
-			// Ñ­»·¶ÁÈën¸öÌâÄ¿µÄÇé¿ö
+			// å¾ªç¯è¯»å…¥nä¸ªé¢˜ç›®çš„æƒ…å†µ
 			for (int i = 0; i < n; i++) {
 				String str = sc.next();
 				
@@ -31,12 +31,12 @@ public class Main {
 						* Integer.parseInt(str.substring(k + 1,
 								str.indexOf(')')));
 			}
-			// ½«Ã¿¸öÑ§ÉúµÄÇé¿ö¼ÓÈëµ½list¼¯ºÏÖĞ
+			// å°†æ¯ä¸ªå­¦ç”Ÿçš„æƒ…å†µåŠ å…¥åˆ°listé›†åˆä¸­
 			list.add(new Student(name, ac, time));
 		}
-		// ÅÅĞò
+		// æ’åº
 		Collections.sort(list);
-		// Êä³ö
+		// è¾“å‡º
 		for (Student stu : list) {
 			System.out.printf("%-10s %2d %4d", stu.name, stu.ac, stu.time);
 			System.out.println();

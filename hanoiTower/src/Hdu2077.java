@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 
-/**ÏÈ°Ñn-1¸ö°áµ½b,ÔÙÓÃÁ©²½°Ñ×î´óµÄ°áµ½C£¬ÔÙ°Ñn-1¸ö´ÓBµ½C¡£
- * ËùÒÔÒªÇó³öac[n]ºÍbc[n]£¬
- * ÆäµÝÍÆ·½³Ì£ºbc[n]=bc[n-1]+1+ac[n-1]£¬bc[n]·½³ÌºÍab[n]Ò»Ñù¡£
- * ×Ü·½³Ìans[n]=2*bc[n-1]+2.
+/**å…ˆæŠŠn-1ä¸ªæ¬åˆ°b,å†ç”¨ä¿©æ­¥æŠŠæœ€å¤§çš„æ¬åˆ°Cï¼Œå†æŠŠn-1ä¸ªä»ŽBåˆ°Cã€‚
+ * æ‰€ä»¥è¦æ±‚å‡ºac[n]å’Œbc[n]ï¼Œ
+ * å…¶é€’æŽ¨æ–¹ç¨‹ï¼šbc[n]=bc[n-1]+1+ac[n-1]ï¼Œbc[n]æ–¹ç¨‹å’Œab[n]ä¸€æ ·ã€‚
+ * æ€»æ–¹ç¨‹ans[n]=2*bc[n-1]+2.
  */
 
 public class Hdu2077 {

@@ -8,7 +8,7 @@ public class Main {
 		Scanner in = new Scanner(System.in);
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 		while (in.hasNext()) {
-			String line = in.nextLine(); // ÊäÈëÒ»ĞĞ×Ö·û
+			String line = in.nextLine(); // è¾“å…¥ä¸€è¡Œå­—ç¬¦
 			String[] strs = line.split("/");
 			int year = Integer.parseInt(strs[0]);
 			int month = Integer.parseInt(strs[1]);

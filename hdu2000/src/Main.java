@@ -9,11 +9,11 @@ public class Main {
 		Scanner in = new Scanner(System.in);
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 		while (in.hasNext()) {
-			String line = in.nextLine(); // ÊäÈëÒ»ĞĞ×Ö·û
+			String line = in.nextLine(); // è¾“å…¥ä¸€è¡Œå­—ç¬¦
 			char[] c = line.toCharArray();
 			Arrays.sort(c);
-			out.println(c[0] + " " + c[1] + " " + c[2]); // Êä³ö²¢»»ĞĞ
-			out.flush(); // ÔÚ¿ØÖÆÌ¨Êä³ö£¬²»ÒªÍü¼ÇÕâ¾ä£¡
+			out.println(c[0] + " " + c[1] + " " + c[2]); // è¾“å‡ºå¹¶æ¢è¡Œ
+			out.flush(); // åœ¨æ§åˆ¶å°è¾“å‡ºï¼Œä¸è¦å¿˜è®°è¿™å¥ï¼
 		}
 
 	}

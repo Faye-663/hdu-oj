@@ -15,7 +15,7 @@ public class Main {
 			int ans=0;
 			
 			for(int j = 0;j<str.length();j++){
-				if((int)str.charAt(j)>127){//ºº×ÖASCiiÂë > 127
+				if((int)str.charAt(j)>127){//æ±‰å­—ASCiiç  > 127
 					ans++;
 				}
 			}

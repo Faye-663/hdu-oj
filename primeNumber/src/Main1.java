@@ -1,35 +1,35 @@
 import java.util.Arrays;
 
 /**
- * °£À­ÍĞË¹ÌØÄáÉ¸·¨ VS Å·À­É¸·¨£¨¸üÓÅ»¯£©
+ * åŸƒæ‹‰æ‰˜æ–¯ç‰¹å°¼ç­›æ³• VS æ¬§æ‹‰ç­›æ³•ï¼ˆæ›´ä¼˜åŒ–ï¼‰
  * 
  * @author TinyDolphin
  *
  */
 public class Main1 {
 
-    private static final int MAX_LENGTH_CHECK = 100000000;          // ÒÚ
-    private static final int MAX_LENGTH_PRIMELIST = 10000000;       // Ç§Íò
+    private static final int MAX_LENGTH_CHECK = 100000000;          // äº¿
+    private static final int MAX_LENGTH_PRIMELIST = 10000000;       // åƒä¸‡
 
-    private static boolean[] check = new boolean[MAX_LENGTH_CHECK]; // ´æ´¢±ê¼Ç
-    private static int[] primeList = new int[MAX_LENGTH_PRIMELIST]; // ´æ´¢ËØÊı
+    private static boolean[] check = new boolean[MAX_LENGTH_CHECK]; // å­˜å‚¨æ ‡è®°
+    private static int[] primeList = new int[MAX_LENGTH_PRIMELIST]; // å­˜å‚¨ç´ æ•°
 
     /**
-     * °£À­ÍĞË¹ÌØÄáÉ¸·¨£¨¼ò³Æ°£ÊÏÉ¸»ò°®ÊÏÉ¸£©£ºÒªµÃµ½×ÔÈ»ÊınÒÔÄÚµÄÈ«²¿ËØÊı£¬±ØĞë°Ñ²»´óÓÚ ¸ùºÅn µÄËùÓĞËØÊıµÄ±¶ÊıÌŞ³ı£¬Ê£ÏÂµÄ¾ÍÊÇËØÊı¡£
-     * ÀıÈç£º¸ø³öÒªÉ¸ÊıÖµµÄ·¶Î§n£¬ÕÒ³öÒÔÄÚµÄËØÊı¡£
-     * ½â·¨£ºÏÈÓÃ2È¥É¸£¬¼´°Ñ2ÁôÏÂ£¬°Ñ2µÄ±¶ÊıÌŞ³ıµô£»ÔÙÓÃÏÂÒ»¸öÖÊÊı£¬Ò²¾ÍÊÇ3É¸£¬°Ñ3ÁôÏÂ£¬°Ñ3µÄ±¶ÊıÌŞ³ıµô£»½ÓÏÂÈ¥ÓÃÏÂÒ»¸öÖÊÊı5É¸£¬°Ñ5ÁôÏÂ£¬°Ñ5µÄ±¶ÊıÌŞ³ıµô£»²»¶ÏÖØ¸´ÏÂÈ¥......¡£
+     * åŸƒæ‹‰æ‰˜æ–¯ç‰¹å°¼ç­›æ³•ï¼ˆç®€ç§°åŸƒæ°ç­›æˆ–çˆ±æ°ç­›ï¼‰ï¼šè¦å¾—åˆ°è‡ªç„¶æ•°nä»¥å†…çš„å…¨éƒ¨ç´ æ•°ï¼Œå¿…é¡»æŠŠä¸å¤§äº æ ¹å·n çš„æ‰€æœ‰ç´ æ•°çš„å€æ•°å‰”é™¤ï¼Œå‰©ä¸‹çš„å°±æ˜¯ç´ æ•°ã€‚
+     * ä¾‹å¦‚ï¼šç»™å‡ºè¦ç­›æ•°å€¼çš„èŒƒå›´nï¼Œæ‰¾å‡ºä»¥å†…çš„ç´ æ•°ã€‚
+     * è§£æ³•ï¼šå…ˆç”¨2å»ç­›ï¼Œå³æŠŠ2ç•™ä¸‹ï¼ŒæŠŠ2çš„å€æ•°å‰”é™¤æ‰ï¼›å†ç”¨ä¸‹ä¸€ä¸ªè´¨æ•°ï¼Œä¹Ÿå°±æ˜¯3ç­›ï¼ŒæŠŠ3ç•™ä¸‹ï¼ŒæŠŠ3çš„å€æ•°å‰”é™¤æ‰ï¼›æ¥ä¸‹å»ç”¨ä¸‹ä¸€ä¸ªè´¨æ•°5ç­›ï¼ŒæŠŠ5ç•™ä¸‹ï¼ŒæŠŠ5çš„å€æ•°å‰”é™¤æ‰ï¼›ä¸æ–­é‡å¤ä¸‹å»......ã€‚
      * 
-     * Ê±¼ä¸´ÔÓ¶È£ºO(nloglogn) 
-     * ²»×ãÖ®´¦£º6 ÔÚ indexI = 2 Ê±±»±ê¼Ç£¬¶øÔÚ indexI = 3 Ê±£¬ÓÖ±»±ê¼ÇÁËÒ»´Î¡£´æÔÚÖØ¸´±ê¼Ç£¬ÓĞÓÅ»¯¿Õ¼ä
+     * æ—¶é—´å¤æ‚åº¦ï¼šO(nloglogn) 
+     * ä¸è¶³ä¹‹å¤„ï¼š6 åœ¨ indexI = 2 æ—¶è¢«æ ‡è®°ï¼Œè€Œåœ¨ indexI = 3 æ—¶ï¼Œåˆè¢«æ ‡è®°äº†ä¸€æ¬¡ã€‚å­˜åœ¨é‡å¤æ ‡è®°ï¼Œæœ‰ä¼˜åŒ–ç©ºé—´
      */
     private static void Eratosthenes(int num) {
         int count = 0;
         for (int indexI = 2; indexI <= num; indexI++) {
-            // µ± indexI ²»ÊÇ±»ÌŞ³ıµÄÊıÊ±£¬½« indexI ÁôÏÂ
+            // å½“ indexI ä¸æ˜¯è¢«å‰”é™¤çš„æ•°æ—¶ï¼Œå°† indexI ç•™ä¸‹
             if (!check[indexI]) {
                 primeList[count++] = indexI;
             }
-            // ÌŞ³ı indexI µÄ±¶Êı
+            // å‰”é™¤ indexI çš„å€æ•°
             for (int indexJ = indexI + indexI; indexJ <= num; indexJ += indexI) {
                 check[indexJ] = true;
             }
@@ -37,8 +37,8 @@ public class Main1 {
     }
 
     /**
-     * Å·À­É¸·¨£º±£Ö¤Ã¿¸öºÏÊıÖ»»á±»ËüµÄ×îĞ¡ÖÊÒòÊıÉ¸µô£¬Ê±¼ä¸´ÔÓ¶È½µµÍµ½O(n)¡£ 
-     * Ã¿Ò»¸öÊı¶¼È¥³ËÒÔµ±Ç°ËØÊı±íÀïÃæÒÑÓĞµÄÊı£¬µ± indexI ÊÇºÏÊı£¬ÇÒ indexI % primeList[indexJ] == 0 Ê±£¬Ö»ÄÜ³ËÒÔµÚÒ»¸öËØÊı 2
+     * æ¬§æ‹‰ç­›æ³•ï¼šä¿è¯æ¯ä¸ªåˆæ•°åªä¼šè¢«å®ƒçš„æœ€å°è´¨å› æ•°ç­›æ‰ï¼Œæ—¶é—´å¤æ‚åº¦é™ä½åˆ°O(n)ã€‚ 
+     * æ¯ä¸€ä¸ªæ•°éƒ½å»ä¹˜ä»¥å½“å‰ç´ æ•°è¡¨é‡Œé¢å·²æœ‰çš„æ•°ï¼Œå½“ indexI æ˜¯åˆæ•°ï¼Œä¸” indexI % primeList[indexJ] == 0 æ—¶ï¼Œåªèƒ½ä¹˜ä»¥ç¬¬ä¸€ä¸ªç´ æ•° 2
      */
     private static void Euler(int num) {
         int count = 0;
@@ -46,16 +46,16 @@ public class Main1 {
             if (!check[indexI]) {
                 primeList[count++] = indexI;
             }
-            // Ã¿Ò»¸öÊı¶¼È¥³ËÒÔµ±Ç°ËØÊı±íÀïÃæÒÑÓĞµÄÊı£¬Èç¹û indexI ÊÇºÏÊı£¬ÇÒ indexI % primeList[indexJ] == 0£¬ÄÇÃ´ËüÖ»ÄÜ³ËÒÔµÚÒ»¸öËØÊı 2
-            // Èç£º2¡Á2¡¢3¡Á(2¡¢3)¡¢4¡Á(2)¡¢5¡Á(2¡¢3¡¢5)¡¢6¡Á(2)¡¢7¡Á(2¡¢3¡¢5¡¢7)¡¢8¡Á(2)¡¢9¡Á(2¡¢3)¡¢10¡Á(2)
+            // æ¯ä¸€ä¸ªæ•°éƒ½å»ä¹˜ä»¥å½“å‰ç´ æ•°è¡¨é‡Œé¢å·²æœ‰çš„æ•°ï¼Œå¦‚æœ indexI æ˜¯åˆæ•°ï¼Œä¸” indexI % primeList[indexJ] == 0ï¼Œé‚£ä¹ˆå®ƒåªèƒ½ä¹˜ä»¥ç¬¬ä¸€ä¸ªç´ æ•° 2
+            // å¦‚ï¼š2Ã—2ã€3Ã—(2ã€3)ã€4Ã—(2)ã€5Ã—(2ã€3ã€5)ã€6Ã—(2)ã€7Ã—(2ã€3ã€5ã€7)ã€8Ã—(2)ã€9Ã—(2ã€3)ã€10Ã—(2)
             for (int indexJ = 0; indexJ < count; indexJ++) {
-                // ¹ı´óµÄÊ±ºòÌø³ö
+                // è¿‡å¤§çš„æ—¶å€™è·³å‡º
                 if (indexI * primeList[indexJ] > num) {
                     break;
                 }
                 check[indexI * primeList[indexJ]] = true;
-                // Èç¹û indexI ÊÇÒ»¸öºÏÊı£¬¶øÇÒ indexI % primeList[indexJ] == 0
-                // ±£Ö¤ÁËÃ¿¸öºÏÊıÖ»»á±»ËüµÄ×îĞ¡ËØÒò×ÓÉ¸µô
+                // å¦‚æœ indexI æ˜¯ä¸€ä¸ªåˆæ•°ï¼Œè€Œä¸” indexI % primeList[indexJ] == 0
+                // ä¿è¯äº†æ¯ä¸ªåˆæ•°åªä¼šè¢«å®ƒçš„æœ€å°ç´ å› å­ç­›æ‰
                 if (indexI % primeList[indexJ] == 0) {
                     break;
                 }
@@ -64,11 +64,11 @@ public class Main1 {
     }
 
     public static void main(String[] args) {
-        int n = 100000; // Ê®Íò
+        int n = 100000; // åä¸‡
         long start = System.currentTimeMillis();
         Eratosthenes(n);
         long end = System.currentTimeMillis();
-        System.out.println("Ê®Íò¼¶±ğÊıÁ¿£º°£ÊÏÉ¸£¬ºÄÊ±£º" + (end - start) + " ms");
+        System.out.println("åä¸‡çº§åˆ«æ•°é‡ï¼šåŸƒæ°ç­›ï¼Œè€—æ—¶ï¼š" + (end - start) + " ms");
 
         Arrays.fill(check, false);
         Arrays.fill(primeList, 0);
@@ -76,7 +76,7 @@ public class Main1 {
         start = System.currentTimeMillis();
         Euler(n);
         end = System.currentTimeMillis();
-        System.out.println("Ê®Íò¼¶±ğÊıÁ¿£ºÅ·À­É¸·¨£¬ºÄÊ±£º" + (end - start) + " ms");
+        System.out.println("åä¸‡çº§åˆ«æ•°é‡ï¼šæ¬§æ‹‰ç­›æ³•ï¼Œè€—æ—¶ï¼š" + (end - start) + " ms");
     }
 
 }

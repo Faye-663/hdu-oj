@@ -11,7 +11,7 @@ public class Main {
 		Scanner in = new Scanner(System.in);
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 		while (in.hasNext()) {
-			String line = in.nextLine(); // ÊäÈëÒ»ĞĞ×Ö·û
+			String line = in.nextLine(); // è¾“å…¥ä¸€è¡Œå­—ç¬¦
 			String[] strs = line.split(" ");
 			int length = Integer.parseInt(strs[0]);
 			int ans = 1;
@@ -21,8 +21,8 @@ public class Main {
 					ans *= j;
 				}
 			}
-			out.println(ans); // Êä³ö²¢»»ĞĞ
-			out.flush(); // ÔÚ¿ØÖÆÌ¨Êä³ö£¬²»ÒªÍü¼ÇÕâ¾ä£¡
+			out.println(ans); // è¾“å‡ºå¹¶æ¢è¡Œ
+			out.flush(); // åœ¨æ§åˆ¶å°è¾“å‡ºï¼Œä¸è¦å¿˜è®°è¿™å¥ï¼
 
 		}
 
