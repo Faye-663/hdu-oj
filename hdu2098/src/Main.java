@@ -1,9 +1,5 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
-//WA
 public class Main {
 	
 	public static void main(String[] args) {
@@ -14,7 +10,7 @@ public class Main {
 				no_prime[j] = true;
 			}
 		}
-		
+		no_prime[0] = no_prime[1] = true;
 		
 		Scanner in = new Scanner(System.in);
 		while (in.hasNext()) {
@@ -23,28 +19,10 @@ public class Main {
 				break;
 			}
 
-			ArrayList<Integer> sushu = new ArrayList<Integer>();
-
-			sushu.add(2);
-			for (int i = 3; i <= 10000; i++) {
-				boolean flag = true;
-				for (int j = 2; j < i; j++) {
-					if (i % j == 0) {
-						flag = false;
-						break;
-					}
-				}
-				if (flag == true) {
-					sushu.add(i);
-				}
-			}
-
 			int sum = 0;
-			for (int i = 0; i < a/2; i++) {
-				for (int j = i + 1; j < a; j++) {
-					if (sushu.get(i) + sushu.get(j) == a) {
-						sum++;
-					}
+			for (int i = 2; i < a/2; i++) {
+				if((no_prime[i]==false) &&(no_prime[a-i] == false)){
+					sum++;
 				}
 			}
 
